@@ -291,11 +291,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var _manipulateList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var _interact_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* eslint-disable import/no-cycle */
 
 
-
+// import Interact from './interact.js';
 
 class Elmnts {
   static createCkBox(taskIndex, taskStatusDone, listToUpdate) {
@@ -306,8 +305,9 @@ class Elmnts {
     checkbox.addEventListener('change', () => {
       const updatedList = listToUpdate.changeStatusDone(taskIndex);
       _storage_js__WEBPACK_IMPORTED_MODULE_0__["default"].saveAndUpdate(updatedList);
-      _interact_js__WEBPACK_IMPORTED_MODULE_2__["default"].updateDomRemoveDrag();
+      Interact.updateDomRemoveDrag();
     });
+    
     return checkbox;
   }
 
@@ -322,7 +322,7 @@ class Elmnts {
       if (e.key === 'Enter') {
         const updatedList = new _manipulateList_js__WEBPACK_IMPORTED_MODULE_1__["default"]().editDescription(taskIndex, e.target.innerText);
         _storage_js__WEBPACK_IMPORTED_MODULE_0__["default"].saveAndUpdate(updatedList);
-        _interact_js__WEBPACK_IMPORTED_MODULE_2__["default"].updateDomRemoveDrag();
+        Interact.updateDomRemoveDrag();
       }
     });
     return description;

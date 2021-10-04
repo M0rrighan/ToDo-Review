@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import Storage from './storage.js';
 import ListManipulation from './manipulateList.js';
-import Interact from './interact.js';
+// import Interact from './interact.js';
 
 export default class Elmnts {
   static createCkBox(taskIndex, taskStatusDone, listToUpdate) {
@@ -14,6 +14,7 @@ export default class Elmnts {
       Storage.saveAndUpdate(updatedList);
       Interact.updateDomRemoveDrag();
     });
+    
     return checkbox;
   }
 

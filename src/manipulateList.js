@@ -8,7 +8,7 @@ export default class ListManipulation extends ListOfTasks {
     super(storageKey);
   }
 
-  addToList(descr, index = this.tasksList.length, done = false) {
+  addToList(descr, index = (this.tasksList.length + 1), done = false) {
     this.tasksList.push(new Task(descr, index, done));
     Storage.saveAndUpdate(this.tasksList);
   }
@@ -21,7 +21,7 @@ export default class ListManipulation extends ListOfTasks {
   overrideIndexes(list) {
     this.list = list;
     this.list.forEach((task, i) => {
-      task.index = i;
+      task.index = (i + 1);
     });
     return this.list;
   }

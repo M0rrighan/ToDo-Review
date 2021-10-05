@@ -121,7 +121,7 @@ export default class Interact {
     const newOrder = document.querySelectorAll('.tasks_list > *');
     const reOrderedArray = [];
     newOrder.forEach((item, i) => {
-      reOrderedArray.push(new Task(item.children[1].textContent, i, item.children[0].checked));
+      reOrderedArray.push(new Task(item.children[1].textContent, i+1, item.children[0].checked));
     });
     localStorage.setItem('ToDoList', JSON.stringify(reOrderedArray));
   }

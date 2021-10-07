@@ -10,10 +10,11 @@ export default class Elmnts {
     checkbox.className = 'checkbox';
     checkbox.checked = taskStatusDone;
     checkbox.addEventListener('change', () => {
-      const updatedList = listToUpdate.changeStatusDone(taskIndex);
+      const updatedList = listToUpdate.changeStatusDone(taskIndex - 1);
       Storage.saveAndUpdate(updatedList);
       Interact.updateDomRemoveDrag();
     });
+
     return checkbox;
   }
 
@@ -24,9 +25,10 @@ export default class Elmnts {
     description.dataset.referTo = taskIndex;
     description.className = 'description';
     description.innerText = taskDescription;
-    description.addEventListener('keypress', (e) => {
+    description.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
-        const updatedList = new ListManipulation().editDescription(taskIndex, e.target.innerText);
+        const updatedList = new ListManipulation()
+          .editDescription(taskIndex - 1, e.target.innerText);
         Storage.saveAndUpdate(updatedList);
         Interact.updateDomRemoveDrag();
       }

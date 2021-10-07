@@ -308,6 +308,7 @@ class Elmnts {
       _storage_js__WEBPACK_IMPORTED_MODULE_0__["default"].saveAndUpdate(updatedList);
       _interact_js__WEBPACK_IMPORTED_MODULE_2__["default"].updateDomRemoveDrag();
     });
+
     return checkbox;
   }
 
